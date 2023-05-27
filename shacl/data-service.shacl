@@ -7,14 +7,34 @@
 
 :DataServiceShape a sh:NodeShape ;
   sh:targetClass dcat:DataService ;
-  sh:property [
+  sh:property  [
+    sh:path dcat:theme ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ], [
     sh:path dcat:endpointURL ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LiteralViewer ;
   ] , [
     sh:path dcat:endpointDescription ;
-    sh:nodeKind sh:Literal ;
+    sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
-    dash:editor dash:TextAreaEditor ;
+    dash:editor dash:URIEditor ;
     dash:viewer dash:LiteralViewer ;
+  ] , [
+    sh:path dcat:landingPage ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ; 
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+] , [
+    sh:path dcat:servesDataset ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ; 
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
 ] .
