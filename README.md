@@ -3,8 +3,7 @@ A record of the process for configuring the Reference Implementation of the FAIR
 
 ## Setting the default license
 
-NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/
-v1.0
+NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/v1.0
 
 To do this: 
 
