@@ -102,6 +102,8 @@ For services that execute algorithmic operations, they:
 
 ## Connecting things together
 
+Go back to the Resource Definitions (main menu)
+
 We need to **make Patient Registry a child of Catalog**
 
 This is what "Catalog" looks like at the beginning:
