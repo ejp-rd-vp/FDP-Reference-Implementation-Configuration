@@ -3,7 +3,7 @@ A record of the process for configuring the Reference Implementation of the FAIR
 
 ## Setting the default license
 
-NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/v1.0
+NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/v1.0 and various other defaults can be configured to more useful values.
 
 To do this: 
 
@@ -13,10 +13,13 @@ To do this:
 * add the following lines to the bottom of that file:
   
 ```
-  metadataProperties:
+metadataProperties:
     language: http://id.loc.gov/vocabulary/iso639-1/en
     license: https://w3id.org/ejp-rd/resources/licenses/v1.0
     accessRightsDescription: Contact the owner/curator of this resource to determine your access rights
+
+ping:
+    interval: PT120H
 ```
 
 * now shut-down and restart your FiaB using docker-compose
