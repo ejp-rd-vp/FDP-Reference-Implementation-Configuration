@@ -89,7 +89,7 @@ Follow the guidelines in the image below to fill the fields, then save:
 
 **THE NORMS ARE:**
 For services that serve a dataset, they:
-* must be a "child of" that dataset
+* must be a "child of" a distribution of dataset
 * must have an endpointURL (the URL of the interface)
 * must have an endpointDescription (the URL leading to e.g. a Swagger/openAPI document)
 
