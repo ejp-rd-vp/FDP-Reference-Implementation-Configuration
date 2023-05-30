@@ -137,7 +137,7 @@ Now we will create a Data Service to make sure everything is working as-expected
 
 Click on the "Data Services" tab, then "+Create"
 
-I'm creating a hypothetical Box-Whisker plot tool.  The "theme" is the concept of a box-whisker plot (from EDAM).  **Note that, because this tool is NOT serving a dataset, I am only require to include a landing page.  (endpointURL and endpointDescription are allowed to be empty)**
+I'm creating a hypothetical Box-Whisker plot tool.  The _**"theme"**_ is the concept of a box-whisker plot (from EDAM:  **operation_2943**).  **Note that, because this tool is NOT serving a dataset, I am only require to include a landing page.  (endpointURL and endpointDescription are allowed to be empty)**
 
 ![](images/boxwhisker-dataservice.png)
 
@@ -175,6 +175,6 @@ This is the URL that is sent during the "ping" to the VP Index.  IT CANNOT BE LO
 
 ![](images/ping.png)
 
-
+Finally, that last field should now read "PT120H", because this is the ping/interval that we set in the very beginning (in the ./fdp/application.yml file).  This is set to ping the VP Index every 5 days.  If your FDP does not ping at least every week, the Index will consider it "inactive" and it will not appear in the main index... so... 5 days should be good!
 
 
