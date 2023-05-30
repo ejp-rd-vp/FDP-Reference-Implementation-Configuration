@@ -131,7 +131,9 @@ Save!
 
 Done!!
 
-Now we will create a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
+## Create a new record - a Data Service that does visualization (Box-whisker plot)
+
+Now we will create a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  (go ahead and do this now!).  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
 
 Click on the "Data Services" tab, then "+Create"
 
