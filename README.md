@@ -85,6 +85,12 @@ Click the "Create Resource Definition" button again.
 Follow the guidelines in the image below to fill the fields, then save:
 ![](./images/create-dataservice-resource.png)
 
+```
+http://www.w3.org/ns.dcat#endpointURL
+http://www.w3.org/ns.dcat#endpointDescription
+http://www.w3.org/ns.dcat#landingPage
+````
+
 **NOTE:**  In EJP there are two "kinds" of Data Service - services that serve a dataset, and services that do algorithmic operations or plotting, but do not access a registry or biobank.  
 
 **THE NORMS ARE:**
