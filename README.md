@@ -67,6 +67,18 @@ The SHACL also needs to be edited.  the correct SHACL for a Data Service is foun
 
 Save and give it a version.
 
+## Create a new schema for Patient registry
+
+Back in the Metadata Schema page, select the "create new" and follow the guidelines in the image below:
+
+![](./images/create-patient-registry.png)
+
+the shacl file is here: [patient-registry.shacl](./shacl/patient-registry.shacl)
+
+
+
+# Switch to Main Manu - Resource Definitions
+
 
 ## Create a new Resource Definition for Patient Registry
 
