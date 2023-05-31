@@ -60,11 +60,14 @@
     sh:maxCount 1 ;
     dash:editor dash:BlankNodeEditor ;
   ] , [
+    sh:targetClass ejp:VPConnection ;
     sh:path ejp:vpConnection ;
     sh:nodeKind sh:IRI ;
+    sh:in (<http://purl.org/ejp-rd/vocabulary/VPDiscoverable> <http://purl.org/ejp-rd/vocabulary/VPQueryable>) ;
     sh:minCount 0 ;
     sh:maxCount 2 ;
-    dash:editor dash:URIEditor ;
+    sh:order 0 ;
+    dash:editor dash:EnumSelectEditor ;
     dash:viewer dash:LabelViewer ;
   ] .
 
