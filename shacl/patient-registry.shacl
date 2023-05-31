@@ -47,6 +47,6 @@
     sh:path rdfs:label;
     sh:in ("National" "International" "Regional" "European");
     sh:nodeKind sh:Literal ;
-    dash:editor dash:TextFieldEditor;
+    dash:editor dash:EnumSelectEditor;
     dash:viewer dash:LabelViewer
   ] . 
