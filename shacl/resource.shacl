@@ -50,8 +50,10 @@
     sh:path ejp:personalData ;
     sh:nodeKind sh:Literal ;
     # sh:datatype xsd:boolean ;  # FDP cannot produce the correct representation of booleans
+    sh:in ("true" "false") ;
     sh:maxCount 1 ;
-    dash:editor dash:TextFieldEditor ;
+    # dash:editor dash:TextFieldEditor ;
+    dash:editor dash:EnumSelectEditor ;
     dash:viewer dash:LiteralViewer ;
   ] , [
     sh:path dct:publisher ;
