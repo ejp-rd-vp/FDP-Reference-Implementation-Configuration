@@ -90,7 +90,10 @@ Follow the guidelines in the image below to fill the fields, then save:
 ![](images/create-registry-resource.png)
 
 
-## Create a new Resource Definition for Data Service
+## Create TWO new Resource Definition for Data Services
+
+**NOTE:**  In EJP there are two "kinds" of Data Service - services that serve a dataset, and services that do algorithmic operations or plotting, but do not access a registry or biobank.  We are going to call these **_"DataService"_** and **_"DataService2"_**
+
 
 Click the "Create Resource Definition" button again.
 
@@ -102,16 +105,17 @@ http://www.w3.org/ns.dcat#endpointURL
 http://www.w3.org/ns.dcat#endpointDescription
 http://www.w3.org/ns.dcat#landingPage
 ````
+Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services have identical definitions, other than their titles.)
 
-**NOTE:**  In EJP there are two "kinds" of Data Service - services that serve a dataset, and services that do algorithmic operations or plotting, but do not access a registry or biobank.  
+
 
 **THE NORMS ARE:**
-For services that serve a dataset, they:
+For services that serve a dataset (DataService1), they:
 * must be a "child of" a distribution of dataset
 * must have an endpointURL (the URL of the interface)
 * must have an endpointDescription (the URL leading to e.g. a Swagger/openAPI document)
 
-For services that execute algorithmic operations, they:
+For services that execute algorithmic operations (DataService2), they:
 * must be a "child of" "Catalog"
 * must have a landingPage (the URL of the homepage, where you can do the operation)
 
@@ -132,26 +136,30 @@ The red arrow is where we create a new child - in this case, we are going to mak
 
 ![](./images/add-child-registry.png)
 
-While we're here, we also need to **make Data Service a child of Catalog**.  Same idea, in this case, DCAT has defined what the property must be:  "dcat:service".
-
-![](images/add-child-service.png)
 
 Save!
 
 
-We need to **make Data Service a child of Distribution**
+### We need to **make _DataService_ a child of Distribution**
 
-Same process as above.  In this case, strangely, DCAT has a different predicate:  "dcat:accessService"
+Same process as above.  DCAT has defined the predicate:  **"dcat:accessService"**
 
 ![](images/add-child-distribution.png)
 
+### We need to **make _DataService2_ a child of Catalog**.  
+
+Same idea, in this case, DCAT has defined _a different predicate_:  **"dcat:service"**
+
+![](images/add-child-service2.png)
+
 Save!
+
 
 Done!!
 
 ## Create a new record - a Data Service that does visualization (Box-whisker plot)
 
-Now we will create a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  (go ahead and do this now!).  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
+Now we will create a record for a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  (go ahead and do this now!).  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
 
 Click on the "Data Services" tab, then "+Create"
 
