@@ -163,8 +163,9 @@ Further down the page there are additional fields that I would like to fill-out.
 
 I also want to tell the VP that the service exists, so I need to make it **VPDiscoverable**.  the allowed values are:
 * http://purl.org/ejp-rd/vocabulary/VPDiscoverable
-* http://purl.org/ejp-rd/vocabulary/VPQueryable
+* http://purl.org/ejp-rd/vocabulary/VPContentDiscovery
 
+VPDiscoverable is required to get a Resource (or child of dcat:Resource) into the FDP Index.  VPContentDiscovery indicates that the Resource has implemented Beacon2 for content-level discovery.
 
 ![](images/vpdiscoverable.png)
 
