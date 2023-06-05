@@ -1,6 +1,13 @@
 # FDP-Configuration
 A record of the process for configuring the Reference Implementation of the FAIR Data Point (the one that is included in FAIR-in-a-box) for use on the EJP-RD Virtual Platform
 
+## Tutorial for running FAIR in a Box (FiaB)
+
+If you don't yet have a FAIR Data Point, you could consider installing one using the FAIR in a Box (FiaB) installer here: https://github.com/ejp-rd-vp/FiaB
+
+Now continue with the configuration below...
+
+
 ## Setting the default license
 
 NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/v1.0 and various other defaults can be configured to more useful values.
