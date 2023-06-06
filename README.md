@@ -112,7 +112,7 @@ http://www.w3.org/ns.dcat#endpointURL
 http://www.w3.org/ns.dcat#endpointDescription
 http://www.w3.org/ns.dcat#landingPage
 ````
-Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services have identical definitions, other than their titles.)
+Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services differ only in their **title** and **URL prefix**.)
 ![](./images/data_service2_object.png)
 
 
