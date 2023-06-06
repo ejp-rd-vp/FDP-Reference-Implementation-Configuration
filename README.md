@@ -113,7 +113,7 @@ http://www.w3.org/ns.dcat#endpointDescription
 http://www.w3.org/ns.dcat#landingPage
 ````
 Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services have identical definitions, other than their titles.)
-![](./images/data-service2-object.png)
+![](./images/data_service2_object.png)
 
 
 **THE NORMS ARE:**
