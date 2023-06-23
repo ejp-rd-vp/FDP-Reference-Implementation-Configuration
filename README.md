@@ -176,6 +176,8 @@ I'm creating a hypothetical Box-Whisker plot tool.  The _**"theme"**_ is the con
 
 Further down the page there are additional fields that I would like to fill-out.  For example, I am going to declare that this service does not utilize personal information (in the GDPR sense).  The allowed values are "true" and "false"  (lower case!).  I am not sure if this is enforced or not
 
+# Telling the VP that the service exists
+
 I also want to tell the VP that the service exists, so I need to make it **VPDiscoverable**.  Find the section called "Vp Connection" and click "add".  The result is a dropdown menu, where you are allowed to seect one of:
 * http://purl.org/ejp-rd/vocabulary/VPDiscoverable
 * http://purl.org/ejp-rd/vocabulary/VPContentDiscovery
