@@ -1,0 +1,14 @@
+# SHACL-to-ShEx:
+PREFIX : <http://fairdatapoint.org/>
+PREFIX dash: <http://datashapes.org/dash#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+:DataServiceShape {
+  dcat:theme  IRI + ;
+  dcat:endpointURL  IRI ? ;
+  dcat:endpointDescription  IRI ? ;
+  dcat:landingPage  IRI ? ;
+  dcat:servesDataset  IRI ?
+}
