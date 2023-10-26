@@ -19,13 +19,15 @@
     sh:maxCount 1 ;
     dash:editor dash:DatePickerEditor ;
     dash:viewer dash:LiteralViewer ;
-  ],  [
-    sh:path dcat:theme ;
-    sh:nodeKind sh:IRI ;
-    sh:minCount 1 ;
-    dash:editor dash:URIEditor ;
-    dash:viewer dash:LabelViewer ;
-  ], [
+  ],
+  #   [   # now inherited from Resource
+  #   sh:path dcat:theme ;
+  #   sh:nodeKind sh:IRI ;
+  #   sh:minCount 1 ;
+  #   dash:editor dash:URIEditor ;
+  #   dash:viewer dash:LabelViewer ;
+  # ], 
+  [
     sh:path dcat:contactPoint ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
