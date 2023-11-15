@@ -22,7 +22,7 @@ To do this:
 ```
 metadataProperties:
     language: http://id.loc.gov/vocabulary/iso639-1/en
-    license: https://w3id.org/ejp-rd/resources/licenses/v1.0
+    license: https://w3id.org/ejp-rd/resources/licenses/v1.0.txt
     accessRightsDescription: Contact the owner/curator of this resource to determine your access rights
 
 ping:
