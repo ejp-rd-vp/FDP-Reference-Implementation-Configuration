@@ -3,7 +3,7 @@ PREFIX : <http://fairdatapoint.org/>
 PREFIX dash: <http://datashapes.org/dash#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX ejp: <http://purl.org/ejp-rd/vocabulary/>
+PREFIX ejp: <https://w3id.org/ejp-rd/vocabulary#>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>

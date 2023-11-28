@@ -180,7 +180,7 @@ Further down the page there are additional fields that I would like to fill-out.
 
 I also want to tell the VP that the service exists, so I need to make it **VPDiscoverable**.  Find the section called "Vp Connection" and click "add".  The result is a dropdown menu, where you are allowed to select:
 
-* http://purl.org/ejp-rd/vocabulary/VPDiscoverable
+* https://w3id.org/ejp-rd/vocabulary#VPDiscoverable
 
 
 VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index.  VPContentDiscovery indicates that the Resource has implemented Beacon2 for content-level discovery.

@@ -5,7 +5,7 @@
 @prefix foaf:     <http://xmlns.com/foaf/0.1/>.
 @prefix sh:       <http://www.w3.org/ns/shacl#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix ejp:   <http://purl.org/ejp-rd/vocabulary/> .
+@prefix ejp:   <https://w3id.org/ejp-rd/vocabulary#> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix odrl: <http://www.w3.org/ns/odrl/2/> .
 
@@ -137,7 +137,7 @@
     sh:name "Indexed by EJP VP?" ;
     sh:path ejp:vpConnection ;
     sh:nodeKind sh:IRI ;
-    sh:in (<http://purl.org/ejp-rd/vocabulary/VPDiscoverable>) ;
+    sh:in (<https://w3id.org/ejp-rd/vocabulary#VPDiscoverable>) ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
     sh:order 0 ;
