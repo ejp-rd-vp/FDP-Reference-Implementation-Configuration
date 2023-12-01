@@ -1,4 +1,4 @@
-# FDP-Configuration
+# FDP Rererence Implementation Configuration
 A record of the process for configuring the Reference Implementation of the FAIR Data Point (the one that is included in FAIR-in-a-box) for use on the EJP-RD Virtual Platform
 
 ## Tutorial for running FAIR in a Box (FiaB)
