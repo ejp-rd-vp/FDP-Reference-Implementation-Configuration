@@ -1,5 +1,6 @@
 # FDP Reference Implementation Configuration
-## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box!
+## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation!
+
 If you are running any other kinds of FDP, you are in the wrong place ;-)
 
 This is a record of the process for configuring the Reference Implementation of the FAIR Data Point (the one that is included in FAIR-in-a-box) for use on the EJP-RD Virtual Platform
@@ -71,9 +72,15 @@ Now edit **Data Service**
 
 ![](./images/edit-data-service.png)
 
-theMany portions of that need to be edited.  Follow my suggestions in the image above.  
+Many portions of that need to be edited.  Follow my suggestions in the image above.  
 
 The SHACL also needs to be edited.  the correct SHACL for a Data Service is found here: [data-service.shacl](./shacl/data-service.shacl)
+
+Save and give it a version.
+
+Now edit **Dataset**
+
+You only need to edit the SHACL portion of Dataset.  The correctd SHACL is found here [dataset.shacl](./shacl/dataset.shacl)
 
 Save and give it a version.
 
