@@ -55,7 +55,7 @@ The two menu entries we are interested in are:
 
 ## Editing the Schemas
 
-We need to edit two schemas - Resource and Data Service - to bring them into compliance with the Virtual Platform.  To begin editing a schema, click on it.  
+We need to edit three schemas - Resource, Dataset and Data Service - to bring them into compliance with the Virtual Platform.  To begin editing a schema, click on it.  
 
 Start with **Resource**
 
@@ -80,7 +80,7 @@ Save and give it a version.
 
 Now edit **Dataset**
 
-You only need to edit the SHACL portion of Dataset.  The correctd SHACL is found here [dataset.shacl](./shacl/dataset.shacl)
+You only need to edit the SHACL portion of Dataset.  The corrected SHACL is found here [dataset.shacl](./shacl/dataset.shacl)
 
 Save and give it a version.
 
