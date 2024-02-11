@@ -193,7 +193,7 @@ I also want to tell the VP that the service exists, so I need to make it **VPDis
 * https://w3id.org/ejp-rd/vocabulary#VPDiscoverable
 
 
-VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index.  VPContentDiscovery indicates that the Resource has implemented Beacon2 for content-level discovery.
+VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index. 
 
 ![](images/boxwhisker-dataservice2.png)
 
