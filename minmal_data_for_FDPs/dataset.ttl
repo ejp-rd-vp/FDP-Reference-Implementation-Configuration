@@ -1,0 +1,22 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix language: <http://id.loc.gov/vocabulary/iso639-1/>.
+@prefix tes: <http://testbed.ejprd.semlab-leiden.nl:10000/>.
+@prefix c: <http://testbed.ejprd.semlab-leiden.nl:10000/catalog/>.
+@prefix n: <http://www.w3.org/2006/vcard/ns#>.
+@prefix n0: <https://herculescrue.github.io/ROH/roh/#>.
+@prefix voc: <https://w3id.org/ejp-rd/vocabulary#>.
+
+tes:new
+    a dcat:Dataset, dcat:Resource;
+    dct:description "An example dataset";
+    dct:isPartOf c:cdbe703b-aaa9-4119-a35e-18eb2e8d47d0;
+    dct:keyword "test";
+    dct:language language:en;
+    dct:license <https://w3id.org/ejp-rd/resources/licenses/v1.0.txt>;
+    dct:publisher [ a foaf:Agent; foaf:name "Mark Denis Wilkinson" ];
+    dct:title "A minimal dataset";
+    dcat:contactPoint [ a n:Agent; n:url <https://wilkinsonlab.info> ];
+    dcat:theme n0:Administrative;
+    voc:personalData "false".

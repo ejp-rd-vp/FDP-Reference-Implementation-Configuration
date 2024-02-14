@@ -1,0 +1,21 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix language: <http://id.loc.gov/vocabulary/iso639-1/>.
+@prefix tes: <http://testbed.ejprd.semlab-leiden.nl:10000/>.
+@prefix n: <http://www.w3.org/2006/vcard/ns#>.
+@prefix ORDO: <http://www.orpha.net/ORDO/>.
+@prefix voc: <https://w3id.org/ejp-rd/vocabulary#>.
+
+tes:new
+    a dcat:Catalog, dcat:Resource;
+    dct:description "A test catalog to get the minimal metadata";
+    dct:isPartOf <http://testbed.ejprd.semlab-leiden.nl:10000>;
+    dct:keyword "testing";
+    dct:language language:en;
+    dct:license <https://w3id.org/ejp-rd/resources/licenses/v1.0.txt>;
+    dct:publisher [ a foaf:Agent; foaf:name "Mark Denis Wilkinson" ];
+    dct:title "A Test Catalog";
+    dcat:contactPoint [ a n:Agent; n:url <https://wilkinsonlab.info> ];
+    dcat:theme ORDO:Orphanet_98895;
+    voc:personalData "false".

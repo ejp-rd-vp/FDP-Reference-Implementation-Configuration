@@ -1,0 +1,11 @@
+
+GETTING A TOKEN
+curl -v -H "Content-type: application/json" -H "Accept: application/json" -d '{"email": "XXXXX", "password": "XXXXX"}' 'http://my.fdp.org/tokens'
+
+
+CREATING A CATALOG
+curl -v -H "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -H "Content-type: text/turtle" -H "Accept: text/turtle" -d @catalog_10000.ttl http://my.fdp.org/catalog
+
+
+PUBLISHING A NEWLY CREATED RESOURCE
+curl -v -X PUT -H "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -H "Content-type: application/json" -d '{"current": "PUBLISHED"}' http://my.fdp.org/catalog/cdbe703b-aaa9-4119-a35e-18eb2e8d47d0/meta/state
