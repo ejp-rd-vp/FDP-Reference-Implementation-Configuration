@@ -11,25 +11,6 @@
 :PatientRegistryShape a sh:NodeShape ;
   sh:targetClass ejp:PatientRegistry ;
   sh:property [
-    sh:path dcat:theme ;
-    sh:nodeKind sh:IRI ;
-    sh:minCount 1 ;
-    dash:editor dash:URIEditor ;
-    dash:viewer dash:LabelViewer ;
-  ], [
-    sh:path dcat:keyword ;
-    sh:nodeKind sh:Literal ;
-    dash:editor dash:TextFieldEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path ejp:personalData ;
-    sh:nodeKind sh:Literal ;
-    sh:datatype xsd:boolean ;
-    sh:maxCount 1 ;
-    sh:minCount 1 ;
-    dash:editor dash:TextFieldEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
     sh:path foaf:page ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;

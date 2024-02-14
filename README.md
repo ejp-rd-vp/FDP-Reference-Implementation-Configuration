@@ -1,5 +1,9 @@
-# FDP-Configuration
-A record of the process for configuring the Reference Implementation of the FAIR Data Point (the one that is included in FAIR-in-a-box) for use on the EJP-RD Virtual Platform
+# FDP Reference Implementation Configuration
+## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation!
+
+If you are running any other kinds of FDP, you are in the wrong place ;-)
+
+This is a record of the process for configuring the Reference Implementation of the FAIR Data Point (the one that is included in FAIR-in-a-box) for use on the EJP-RD Virtual Platform
 
 ## Tutorial for running FAIR in a Box (FiaB)
 
@@ -51,7 +55,7 @@ The two menu entries we are interested in are:
 
 ## Editing the Schemas
 
-We need to edit two schemas - Resource and Data Service - to bring them into compliance with the Virtual Platform.  To begin editing a schema, click on it.  
+We need to edit three schemas - Resource, Dataset and Data Service - to bring them into compliance with the Virtual Platform.  To begin editing a schema, click on it.  
 
 Start with **Resource**
 
@@ -68,9 +72,15 @@ Now edit **Data Service**
 
 ![](./images/edit-data-service.png)
 
-theMany portions of that need to be edited.  Follow my suggestions in the image above.  
+Many portions of that need to be edited.  Follow my suggestions in the image above.  
 
 The SHACL also needs to be edited.  the correct SHACL for a Data Service is found here: [data-service.shacl](./shacl/data-service.shacl)
+
+Save and give it a version.
+
+Now edit **Dataset**
+
+You only need to edit the SHACL portion of Dataset.  The corrected SHACL is found here [dataset.shacl](./shacl/dataset.shacl)
 
 Save and give it a version.
 
@@ -108,9 +118,9 @@ Follow the guidelines in the image below to fill the fields, then save:
 ![](./images/create-dataservice-resource.png)
 
 ```
-http://www.w3.org/ns.dcat#endpointURL
-http://www.w3.org/ns.dcat#endpointDescription
-http://www.w3.org/ns.dcat#landingPage
+http://www.w3.org/ns/dcat#endpointURL
+http://www.w3.org/ns/dcat#endpointDescription
+http://www.w3.org/ns/dcat#landingPage
 ````
 Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services differ only in their **title** and **URL prefix**.)
 ![](./images/data_service2_object.png)
@@ -183,7 +193,7 @@ I also want to tell the VP that the service exists, so I need to make it **VPDis
 * https://w3id.org/ejp-rd/vocabulary#VPDiscoverable
 
 
-VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index.  VPContentDiscovery indicates that the Resource has implemented Beacon2 for content-level discovery.
+VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index. 
 
 ![](images/boxwhisker-dataservice2.png)
 
