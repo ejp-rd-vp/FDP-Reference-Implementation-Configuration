@@ -1,4 +1,5 @@
 # FDP Reference Implementation Configuration
+
 ## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation!
 
 If you are running any other kinds of FDP, you are in the wrong place ;-)
@@ -68,7 +69,7 @@ The correct SHACL for a Resource is found here:  [resource.shacl](./shacl/resour
 Copy/paste that into the Web form, and then **Save and Release**.  You will be asked to assign a version number.  This is arbitrary, but the version has to be higher than the previous version (1.0.0).
 
 
-Now edit **Data Service**
+### Now edit **Data Service**
 
 ![](./images/edit-data-service.png)
 
@@ -78,7 +79,7 @@ The SHACL also needs to be edited.  the correct SHACL for a Data Service is foun
 
 Save and give it a version.
 
-Now edit **Dataset**
+### Now edit **Dataset**
 
 You only need to edit the SHACL portion of Dataset.  The corrected SHACL is found here [dataset.shacl](./shacl/dataset.shacl)
 
@@ -91,6 +92,15 @@ Back in the Metadata Schema page, select the "create new" and follow the guideli
 ![](./images/create-patient-registry.png)
 
 the shacl file is here: [patient-registry.shacl](./shacl/patient-registry.shacl)
+
+
+## Create a new schema for Guideline
+
+Back in the Metadata Schema page, select the "create new" and follow the guidelines in the image below:
+
+![](./images/guideline.png)
+
+the shacl file is here: [guideline.shacl](./shacl/guideline.shacl)
 
 
 
@@ -107,6 +117,19 @@ Follow the guidelines in the image below to fill the fields, then save:
 ![](images/create-registry-resource.png)
 
 
+
+## Create a new Resource Definition for Guideline
+
+Back in the main menu, select "Resource Definitions", then click the "Create Resource Definition" button:
+
+Follow the guidelines in the image below to fill the fields, then save:
+![](images/guideline2.png)
+
+```
+http://www.w3.org/ns/dcat#landingPage
+```
+
+
 ## Create TWO new Resource Definition for Data Services
 
 **NOTE:**  In EJP there are two "kinds" of Data Service - services that serve a dataset, and services that do algorithmic operations or plotting, but do not access a registry or biobank.  We are going to call these **_"DataService"_** and **_"DataService2"_**
@@ -121,7 +144,8 @@ Follow the guidelines in the image below to fill the fields, then save:
 http://www.w3.org/ns/dcat#endpointURL
 http://www.w3.org/ns/dcat#endpointDescription
 http://www.w3.org/ns/dcat#landingPage
-````
+```
+
 Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services differ only in their **title** and **URL prefix**.)
 ![](./images/data_service2_object.png)
 
@@ -141,70 +165,59 @@ For services that execute algorithmic operations (DataService2), they:
 **THESE NORMS ARE NOT ENFORCED BY THE FDP!!  So... just be good citizens!**
 
 
-## Connecting things together
+
+
+# Connecting things together
 
 Go back to the Resource Definitions (main menu)
 
-We need to **make Patient Registry a child of Catalog**
+### We need to **make Patient Registry a child of Catalog**
 
 This is what "Catalog" looks like at the beginning:
 
 ![](./images/edit-catalog-resource.png)
 
-The red arrow is where we create a new child - in this case, we are going to make Patient Registry a child of Catalog.  Note that the property that the Metadata team decided to use is "hasPart"
+The red arrow is where we create a new child - in this case, we are going to make Patient Registry a child of Catalog.  Note that the property that the Metadata team decided to use is `dc:hasPart`
 
 ![](./images/add-child-registry.png)
 
 
+### We need to **make Guideline a child of Catalog**
+
+
+In this case, we are going to make Guideline a child of Catalog.  Note that the property that the Metadata team decided to use is `dc:hasPart`
+
+![](./images/guideline3.png)
+
+```
+http://purl.org/dc/terms/hasPart
+```
+
+### We need to **make _DataService2_ a child of Catalog**.  
+
+Same idea, in this case, DCAT has defined _a different predicate_:  `dcat:service`
+
+![](images/add-child-service2.png)
+
+```
+http://www.w3.org/ns/dcat#service
+```
+
 Save!
+
+
 
 
 ### We need to **make _DataService_ a child of Distribution**
 
-Same process as above.  DCAT has defined the predicate:  **"dcat:accessService"**
+Same process as above, but now **open the definition for "Distribution"**.  DCAT has defined the predicate:  `dcat:accessService` to connect a Distribution with its Data Service.
 
 ![](images/add-child-distribution.png)
 
-### We need to **make _DataService2_ a child of Catalog**.  
+```
+http://www.w3.org/ns/dcat#accessService
+```
 
-Same idea, in this case, DCAT has defined _a different predicate_:  **"dcat:service"**
-
-![](images/add-child-service2.png)
-
-Save!
-
-
-Done!!
-
-## Create a new record - a Data Service that does visualization (Box-whisker plot)
-
-Now we will create a record for a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  (go ahead and do this now!).  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
-
-Click on the "Data Services" tab, then "+Create"
-
-I'm creating a hypothetical Box-Whisker plot tool.  The _**"theme"**_ is the concept of a box-whisker plot (from EDAM:  **operation_2943**).  **Note that, because this tool is NOT serving a dataset, I am only require to include a landing page.  (endpointURL and endpointDescription are allowed to be empty)**
-
-![](images/boxwhisker-dataservice.png)
-
-Further down the page there are additional fields that I would like to fill-out.  For example, I am going to declare that this service does not utilize personal information (in the GDPR sense).  The allowed values are "true" and "false"  (lower case!).  I am not sure if this is enforced or not
-
-I also want to tell the VP that the service exists, so I need to make it **VPDiscoverable**.  Find the section called "Vp Connection" and click "add".  The result is a dropdown menu, where you are allowed to select:
-
-* https://w3id.org/ejp-rd/vocabulary#VPDiscoverable
-
-
-VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index. 
-
-![](images/boxwhisker-dataservice2.png)
-
-Save!
-
-You will see that it is in draft form.  The button on the right leads to the tool.  It is advertising itself as being VP Discoverable.  Now all you need to do is click "Publish" (also on the Catalog)...
-
-![](./images/publishwhiskers.png)
-
-
-### DONE DONE DONE!
 
 # Additional Configuration
 
@@ -223,5 +236,45 @@ This is the URL that is sent during the "ping" to the VP Index.  IT CANNOT BE LO
 ![](images/ping.png)
 
 Finally, that last field should now read "PT120H", because this is the ping/interval that we set in the very beginning (in the ./fdp/application.yml file).  This is set to ping the VP Index every 5 days.  If your FDP does not ping at least every week, the Index will consider it "inactive" and it will not appear in the main index... so... 5 days should be good!
+
+
+YOU ARE NOW DONE!
+
+<br/><br/><br/>
+<hr/>
+<br/><br/><br/>
+
+# Here's an example of how to enter a Data Service. 
+
+## you do not have to do this!  It is only for your information
+
+### We will Create a new record - a Data Service that does visualization (Box-whisker plot)
+
+Now we will create a record for a Data Service to make sure everything is working as-expected.  Data Service is a child of catalog, so we need to first create a Catalog.  (go ahead and do this now!).  Once created, that catalog has three kinds of "children", indicated by the tabs:  Datasets, Data Services, and Patient Registries.
+
+Click on the "Data Services" tab, then "+Create"
+
+I'm creating a hypothetical Box-Whisker plot tool.  The `theme` is the concept of a box-whisker plot (from EDAM:  `edam:operation_2943`).  **Note that, because this tool is NOT serving a dataset, I am only require to include a landing page.  (endpointURL and endpointDescription are allowed to be empty)**
+
+![](images/boxwhisker-dataservice.png)
+
+Further down the page there are additional fields that I would like to fill-out.  For example, I am going to declare that this service does not utilize personal information (in the GDPR sense).  The allowed values are "true" and "false"  (lower case!).  I am not sure if this is enforced or not
+
+I also want to tell the VP that the service exists, so I need to make it `https://w3id.org/ejp-rd/vocabulary#VPDiscoverable`.  Find the section called "Vp Connection" and click "add".  The result is a dropdown menu, where you are allowed to select:
+
+```
+VPDiscoverable
+```
+
+
+VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index. 
+
+![](images/boxwhisker-dataservice2.png)
+
+Save!
+
+You will see that it is in draft form.  The button on the right leads to the tool.  It is advertising itself as being VP Discoverable.  Now all you need to do is click "Publish" (also on the Catalog)...
+
+![](./images/publishwhiskers.png)
 
 
