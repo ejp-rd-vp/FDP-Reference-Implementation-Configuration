@@ -7,4 +7,4 @@
 @prefix ejp:      <https://w3id.org/ejp-rd/vocabulary#> .
 
 :GuidelineShape a sh:NodeShape ;
-  sh:targetClass ejp:Guideline ;
+  sh:targetClass ejp:Guideline .
