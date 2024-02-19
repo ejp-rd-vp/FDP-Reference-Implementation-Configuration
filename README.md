@@ -104,6 +104,16 @@ the shacl file is here: [guideline.shacl](./shacl/guideline.shacl)
 
 
 
+## Create a new schema for Biobank
+
+Back in the Metadata Schema page, select the "create new" and follow the guidelines in the image below:
+
+![](./images/biobank_schema.png)
+
+the shacl file is here: [biobank.shacl](./shacl/biobank.shacl)
+
+
+
 # Switch to Main Manu - Resource Definitions
 
 
@@ -117,6 +127,15 @@ Follow the guidelines in the image below to fill the fields, then save:
 ![](images/create-registry-resource.png)
 
 
+## Create a new Resource Definition for Biobank
+
+Back in the main menu, select "Resource Definitions", then click the "Create Resource Definition" button:
+
+Follow the guidelines in the image below to fill the fields, then save:
+![](./images/biobank_resourcedef.png)
+
+
+
 
 ## Create a new Resource Definition for Guideline
 
@@ -128,6 +147,8 @@ Follow the guidelines in the image below to fill the fields, then save:
 ```
 http://www.w3.org/ns/dcat#landingPage
 ```
+
+
 
 
 ## Create TWO new Resource Definition for Data Services
@@ -192,6 +213,20 @@ In this case, we are going to make Guideline a child of Catalog.  Note that the 
 ```
 http://purl.org/dc/terms/hasPart
 ```
+
+
+### We need to **make Biobank a child of Catalog**
+
+
+In this case, we are going to make Biobank a child of Catalog.  Note that the property that the Metadata team decided to use is `dc:hasPart`
+
+![](./images/biobank_catalogconnect.png)
+
+```
+http://purl.org/dc/terms/hasPart
+```
+
+
 
 ### We need to **make _DataService2_ a child of Catalog**.  
 
