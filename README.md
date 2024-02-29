@@ -1,6 +1,6 @@
 # FDP Reference Implementation Configuration
 
-## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation!
+## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation
 
 If you are running any other kinds of FDP, you are in the wrong place ;-)
 
@@ -8,16 +8,15 @@ This is a record of the process for configuring the Reference Implementation of 
 
 ## Tutorial for running FAIR in a Box (FiaB)
 
-If you don't yet have a FAIR Data Point, you could consider installing one using the FAIR in a Box (FiaB) installer here: https://github.com/ejp-rd-vp/FiaB
+If you don't yet have a FAIR Data Point, you could consider installing one using the FAIR in a Box (FiaB) installer here: <https://github.com/ejp-rd-vp/FiaB>
 
 Now continue with the configuration below...
 
-
 ## Setting the default license
 
-NOTE: The EJP-RD "non-license" can be set as the default license:  https://w3id.org/ejp-rd/resources/licenses/v1.0 and various other defaults can be configured to more useful values.
+NOTE: The EJP-RD "non-license" can be set as the default license:  <https://w3id.org/ejp-rd/resources/licenses/v1.0> and various other defaults can be configured to more useful values.
 
-To do this: 
+To do this:
 
 * Go to your FiaB folder.  
 * Go into the ./fdp subfolder
@@ -36,15 +35,15 @@ ping:
 
 * now shut-down and restart your FiaB using docker-compose
 
+## Navigating the FDP configuration menu
 
-# Navigating the FDP configuration menu
-
-* first, you need to be logged-in (default user:  albert.einstein@example.com, pass: password)
+* first, you need to be logged-in (default user:  <albert.einstein@example.com>, pass: password)
 * The drop-down menu (top right) looks like this:
 
 ![](./images/menu.png)
 
 The two menu entries we are interested in are:
+
 * Resources Definitions:  What kinds of things can be in your FDP?  The defaults are:
   
 ![](./images/default-resource-definitions.png)
@@ -52,7 +51,6 @@ The two menu entries we are interested in are:
 * Metadata schemas:  What is the "shape" of the things, and what web form elements should be used to capture those?  The defaults are:
 
 ![](./images/default-schemas.png)
-
 
 ## Editing the Schemas
 
@@ -67,7 +65,6 @@ The part we need to change is at the bottom - the SHACL definitions of the shape
 The correct SHACL for a Resource is found here:  [resource.shacl](./shacl/resource.shacl)
 
 Copy/paste that into the Web form, and then **Save and Release**.  You will be asked to assign a version number.  This is arbitrary, but the version has to be higher than the previous version (1.0.0).
-
 
 ### Now edit **Data Service**
 
@@ -85,6 +82,17 @@ You only need to edit the SHACL portion of Dataset.  The corrected SHACL is foun
 
 Save and give it a version.
 
+
+### Now edit **Metadata Service**
+
+In this case, there is no change to the SHACL.  The only thing you need to do is change the inheritance from "DataService" to "Resource"
+
+![](./images/changetoresource.png)
+
+Save and give it a version.
+
+<hr/>
+
 ## Create a new schema for Patient registry
 
 Back in the Metadata Schema page, select the "create new" and follow the guidelines in the image below:
@@ -92,7 +100,6 @@ Back in the Metadata Schema page, select the "create new" and follow the guideli
 ![](./images/create-patient-registry.png)
 
 the shacl file is here: [patient-registry.shacl](./shacl/patient-registry.shacl)
-
 
 ## Create a new schema for Guideline
 
@@ -102,8 +109,6 @@ Back in the Metadata Schema page, select the "create new" and follow the guideli
 
 the shacl file is here: [guideline.shacl](./shacl/guideline.shacl)
 
-
-
 ## Create a new schema for Biobank
 
 Back in the Metadata Schema page, select the "create new" and follow the guidelines in the image below:
@@ -112,10 +117,9 @@ Back in the Metadata Schema page, select the "create new" and follow the guideli
 
 the shacl file is here: [biobank.shacl](./shacl/biobank.shacl)
 
+<hr/>
 
-
-# Switch to Main Manu - Resource Definitions
-
+## Switch to Main Manu - Resource Definitions
 
 ## Create a new Resource Definition for Patient Registry
 
@@ -126,16 +130,12 @@ Back in the main menu, select "Resource Definitions", then click the "Create Res
 Follow the guidelines in the image below to fill the fields, then save:
 ![](images/create-registry-resource.png)
 
-
 ## Create a new Resource Definition for Biobank
 
 Back in the main menu, select "Resource Definitions", then click the "Create Resource Definition" button:
 
 Follow the guidelines in the image below to fill the fields, then save:
 ![](./images/biobank_resourcedef.png)
-
-
-
 
 ## Create a new Resource Definition for Guideline
 
@@ -148,13 +148,9 @@ Follow the guidelines in the image below to fill the fields, then save:
 http://www.w3.org/ns/dcat#landingPage
 ```
 
-
-
-
 ## Create TWO new Resource Definition for Data Services
 
 **NOTE:**  In EJP there are two "kinds" of Data Service - services that serve a dataset, and services that do algorithmic operations or plotting, but do not access a registry or biobank.  We are going to call these **_"DataService"_** and **_"DataService2"_**
-
 
 Click the "Create Resource Definition" button again.
 
@@ -170,25 +166,23 @@ http://www.w3.org/ns/dcat#landingPage
 Do the same thing again,  but this time, call it **_DataService2_**.  (The two kinds of services differ only in their **title** and **URL prefix**.)
 ![](./images/data_service2_object.png)
 
-
 **THE NORMS ARE:**
 For services that serve a dataset (DataService), they:
+
 * MUST be a "child of" a distribution of dataset
 * MUST have an endpointURL (the URL of the interface)
 * MUST have an endpointDescription (the URL leading to e.g. a Swagger/openAPI document)
 * MAY have a landingPage
 
 For services that execute algorithmic operations (DataService2), they:
+
 * MUST be a "child of" "Catalog"
 * MUST have a landingPage (the URL of the homepage, where you can do the operation)
 * MAY have endpointURL and endpointDescription
 
 **THESE NORMS ARE NOT ENFORCED BY THE FDP!!  So... just be good citizens!**
 
-
-
-
-# Connecting things together
+## Connecting things together
 
 Go back to the Resource Definitions (main menu)
 
@@ -202,9 +196,7 @@ The red arrow is where we create a new child - in this case, we are going to mak
 
 ![](./images/add-child-registry.png)
 
-
 ### We need to **make Guideline a child of Catalog**
-
 
 In this case, we are going to make Guideline a child of Catalog.  Note that the property that the Metadata team decided to use is `dc:hasPart`
 
@@ -214,9 +206,7 @@ In this case, we are going to make Guideline a child of Catalog.  Note that the 
 http://purl.org/dc/terms/hasPart
 ```
 
-
 ### We need to **make Biobank a child of Catalog**
-
 
 In this case, we are going to make Biobank a child of Catalog.  Note that the property that the Metadata team decided to use is `dc:hasPart`
 
@@ -226,9 +216,7 @@ In this case, we are going to make Biobank a child of Catalog.  Note that the pr
 http://purl.org/dc/terms/hasPart
 ```
 
-
-
-### We need to **make _DataService2_ a child of Catalog**.  
+### We need to **make _DataService2_ a child of Catalog**  
 
 Same idea, in this case, DCAT has defined _a different predicate_:  `dcat:service`
 
@@ -237,10 +225,6 @@ Same idea, in this case, DCAT has defined _a different predicate_:  `dcat:servic
 ```
 http://www.w3.org/ns/dcat#service
 ```
-
-Save!
-
-
 
 
 ### We need to **make _DataService_ a child of Distribution**
@@ -253,6 +237,16 @@ Same process as above, but now **open the definition for "Distribution"**.  DCAT
 http://www.w3.org/ns/dcat#accessService
 ```
 
+### Finally, we need to break the connection beteween FDP and DataService
+
+Same process as above, but now **open the definition for "FAIR Data Point**. 
+
+![](images/editfdp.png)
+
+Remove the inheritance from DataService.
+
+![](images/removedataservice.png)
+
 
 # Additional Configuration
 
@@ -260,9 +254,9 @@ On a production server, you need to activate the "ping" to register yourself wit
 
 This has two steps:
 
-*  Go back to the "./fdp/application-xxx.yml" file and edit the clientURL to be your permanent identifier.
+* Go back to the "./fdp/application-xxx.yml" file and edit the clientURL to be your permanent identifier.
 
-e.g.     clientUrl: https://w3id.org/duchenne-fdp
+e.g.     clientUrl: <https://w3id.org/duchenne-fdp>
 
 This is the URL that is sent during the "ping" to the VP Index.  IT CANNOT BE LOCALHOST!
 
@@ -272,14 +266,13 @@ This is the URL that is sent during the "ping" to the VP Index.  IT CANNOT BE LO
 
 Finally, that last field should now read "PT120H", because this is the ping/interval that we set in the very beginning (in the ./fdp/application.yml file).  This is set to ping the VP Index every 5 days.  If your FDP does not ping at least every week, the Index will consider it "inactive" and it will not appear in the main index... so... 5 days should be good!
 
-
 YOU ARE NOW DONE!
 
 <br/><br/><br/>
 <hr/>
 <br/><br/><br/>
 
-# Here's an example of how to enter a Data Service. 
+# Here's an example of how to enter a Data Service
 
 ## you do not have to do this!  It is only for your information
 
@@ -301,8 +294,7 @@ I also want to tell the VP that the service exists, so I need to make it `https:
 VPDiscoverable
 ```
 
-
-VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index. 
+VPDiscoverable is required to get a Resource (i.e. any child of dcat:Resource) into the FDP Index.
 
 ![](images/boxwhisker-dataservice2.png)
 
@@ -311,5 +303,3 @@ Save!
 You will see that it is in draft form.  The button on the right leads to the tool.  It is advertising itself as being VP Discoverable.  Now all you need to do is click "Publish" (also on the Catalog)...
 
 ![](./images/publishwhiskers.png)
-
-
