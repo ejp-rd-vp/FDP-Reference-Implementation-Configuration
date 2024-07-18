@@ -83,15 +83,6 @@ You only need to edit the SHACL portion of Dataset.  The corrected SHACL is foun
 Save and give it a version.
 
 
-### Now edit **Metadata Service**
-
-In this case, there is no change to the SHACL.  The only thing you need to do is change the inheritance from "DataService" to "Resource"
-
-![](./images/changetoresource.png)
-
-Save and give it a version.
-
-<hr/>
 
 ## Create a new schema for Patient registry
 
