@@ -57,7 +57,7 @@
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
   ],  [
-    sh:path dct:keyword ;
+    sh:path dcat:keyword ;
     sh:name "Keywords" ;
     sh:nodeKind sh:Literal ;
     sh:minCount 1 ;
