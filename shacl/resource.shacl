@@ -169,6 +169,14 @@
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
+  ] ,  [
+    sh:path dcat:landingPage ;
+    sh:name "Logo" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
   ] .
 
 :AgentShape a sh:NodeShape ;  # New section
