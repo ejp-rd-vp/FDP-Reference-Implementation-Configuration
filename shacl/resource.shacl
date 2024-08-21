@@ -163,6 +163,13 @@
     sh:maxCount  1 ;
     dash:editor dash:TextFieldEditor ;
   ] , [
+    sh:path dcterms:description;
+    sh:name "Description" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount  1 ;
+    dash:editor dash:TextFieldEditor ;
+  ] , [
     sh:path foaf:logo ;
     sh:name "Logo" ;
     sh:nodeKind sh:IRI ;
