@@ -57,7 +57,7 @@
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
   ],  [
-    sh:path dct:keyword ;
+    sh:path dcat:keyword ;
     sh:name "Keywords" ;
     sh:nodeKind sh:Literal ;
     sh:minCount 1 ;
@@ -95,7 +95,7 @@
     dash:viewer dash:LabelViewer ;
   ], [ # new section
     sh:path dcat:landingPage ;
-    sh:name "About Page" ;
+    sh:name "About Page (Landing Page)" ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
@@ -121,14 +121,14 @@
   ] , [
     sh:path dct:publisher ;
     sh:name "Publisher" ;
-    sh:node :AgentShape ;
+    sh:node :OrgShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     dash:editor dash:BlankNodeEditor ;
   ] , [  # this is a new section, and mandatory
     sh:path dcat:contactPoint ;
     sh:name "Contact Information" ;
-    sh:node :ContactShape ;
+    sh:node :AgentShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     dash:editor dash:BlankNodeEditor ;
@@ -153,11 +153,18 @@
     dash:viewer dash:LabelViewer ;
   ] .
 
-:AgentShape a sh:NodeShape ;
-  sh:targetClass foaf:Agent ;
+:OrgShape a sh:NodeShape ;
+  sh:targetClass foaf:Organization ;
   sh:property [
     sh:path foaf:name;
     sh:name "Name" ;
+    sh:nodeKind sh:Literal ;
+    sh:minCount 1 ;
+    sh:maxCount  1 ;
+    dash:editor dash:TextFieldEditor ;
+  ] , [
+    sh:path dcterms:description;
+    sh:name "Description" ;
     sh:nodeKind sh:Literal ;
     sh:minCount 1 ;
     sh:maxCount  1 ;
@@ -169,9 +176,17 @@
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
+  ] ,  [
+    sh:path dcat:landingPage ;
+    sh:name "Logo" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
   ] .
 
-:ContactShape a sh:NodeShape ;  # New section
+:AgentShape a sh:NodeShape ;  # New section
   sh:targetClass vcard:Agent ;
   sh:property [
     sh:path vcard:url;
@@ -182,6 +197,3 @@
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
   ] .
-
-
-
