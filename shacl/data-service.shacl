@@ -20,23 +20,27 @@
 :DataServiceShape a sh:NodeShape ;
   sh:targetClass dcat:DataService ;
   sh:property [
+    sh:name "Endpoint URL (the address of your service endpoint)" ;
     sh:path dcat:endpointURL ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LiteralViewer ;
   ] , [
+    sh:name "Endpoint Description (the address of your OpenAPI/Swagger YAML or JSON - NOT YOUR SWAGGER PAGE!!!!!)" ;
     sh:path dcat:endpointDescription ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LiteralViewer ;
   ] , [
+    sh:name "Ontological Type of your service (use EDAM)" ;
     sh:path dct:type ;
     sh:nodeKind sh:IRI ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
   ] , [
+    sh:name "If your service serves a dataset, what is the address of that dataset? (e.g. the DCAT Dataset URL)" ;
     sh:path dcat:servesDataset ;
     sh:nodeKind sh:IRI ;
     sh:minCount 0 ; 

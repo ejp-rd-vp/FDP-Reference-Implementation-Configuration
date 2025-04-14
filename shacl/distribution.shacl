@@ -21,6 +21,7 @@
 :DistributionShape a sh:NodeShape ;
   sh:targetClass dcat:Distribution ;
     sh:property [
+        sh:name "Access URL (the URL for a direct download of the data)" ;
         sh:path dcat:accessURL ;
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
@@ -28,6 +29,8 @@
         sh:message "Distribution must have at least one dcat:accessURL as an IRI (Health Data Access Body landing page)" ;
     ] ,
     sh:property [
+        sh:name "Data Format" ;
+        # TODO  what are the URLs for data format?
         sh:path dct:format ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -36,6 +39,7 @@
         sh:message "Distribution must have exactly one dct:format as an IRI" ;
     ] ,
     sh:property [
+        sh:name "Rights (the URL to the description of what you are allowed to do with this data download)" ;
         sh:path dct:rights ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -44,6 +48,7 @@
         sh:message "Distribution must have exactly one dct:rights statement" ;
     ] ,
     sh:property [
+        sh:name "Byte Size as an Integer (about how large is the download?  1Meg = 1000000)" ;
         sh:path dcat:byteSize ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
