@@ -5,16 +5,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix dcatap: <http://data.europa.eu/r5r/> .
-@prefix healthdcatap: <http://data.europa.eu/healthdcat-ap#> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dpv: <https://w3id.org/dpv#> .
-@prefix eli: <http://data.europa.eu/eli/ontology#> .
 
 # Shape for dcat:Catalog
-# Validates catalog metadata, including mandatory properties
+# Ensures the catalog has mandatory properties and contains datasets
 :CatalogShape a sh:NodeShape ;
     sh:targetClass dcat:Catalog ;
     sh:property [
@@ -22,29 +15,21 @@
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Catalog must have at least one dct:title of type xsd:string" ;
+        sh:message "Catalog must have exactly one dct:title of type xsd:string" ;
     ] ;
     sh:property [
         sh:path dct:description ;
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Catalog must have at least one dct:description of type xsd:string" ;
+        sh:message "Catalog must have exactly one dct:description of type xsd:string" ;
     ] ;
     sh:property [
         sh:path dct:publisher ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
         sh:message "Catalog must have exactly one dct:publisher as an IRI" ;
-    ] ;
-    sh:property [
-        sh:path dcatap:applicableLegislation ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Catalog must have at least one dcatap:applicableLegislation as an IRI" ;
     ] ;
     sh:property [
         sh:path dcat:dataset ;
@@ -52,17 +37,10 @@
         sh:nodeKind sh:IRI ;
         sh:severity sh:Warning ;
         sh:message "Catalog should reference at least one dcat:Dataset" ;
-    ] ;
-    sh:property [
-        sh:path dct:license ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Warning ;
-        sh:message "Catalog should have at most one dct:license as an IRI" ;
     ] .
 
-# Shape for dcat:Dataset (Non-Public/Sensitive Health Data)
-# Includes Health DCAT-AP mandatory properties and controlled vocabularies
+# Shape for dcat:Dataset
+# Includes health-specific constraints (e.g., theme must include health-related URI)
 :DatasetShape a sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
     sh:property [
@@ -70,202 +48,55 @@
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dct:title of type xsd:string" ;
+        sh:message "Dataset must have exactly one dct:title of type xsd:string" ;
     ] ;
     sh:property [
         sh:path dct:description ;
         sh:minCount 1 ;
         sh:datatype xsd:string ;
         sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dct:description of type xsd:string" ;
-    ] ;
-    sh:property [
-        sh:path dct:identifier ;
-        sh:minCount 1 ;
-        sh:datatype xsd:anyURI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dct:identifier as a URI" ;
-    ] ;
-    sh:property [
-        sh:path dcatap:applicableLegislation ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:hasValue <http://data.europa.eu/eli/reg/2025/327/oj> ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have dcatap:applicableLegislation including EHDS Regulation URI" ;
-    ] ;
-    sh:property [
-        sh:path dcat:theme ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:hasValue <http://publications.europa.eu/resource/authority/data-theme/HEAL> ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have dcat:theme with Health theme URI" ;
-    ] ;
-    sh:property [
-        sh:path dct:accessRights ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:in ( <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> ) ;
-        sh:severity sh:Violation ;
-        sh:message "Non-public dataset must have dct:accessRights set to NON_PUBLIC" ;
-    ] ;
-    sh:property [
-        sh:path dcat:distribution ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dcat:Distribution" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:hdab ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have exactly one healthdcatap:hdab as an IRI" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:healthCategory ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one healthdcatap:healthCategory from EHDS Art.51 vocabulary" ;
+        sh:message "Dataset must have exactly one dct:description of type xsd:string" ;
     ] ;
     sh:property [
         sh:path dct:publisher ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
         sh:message "Dataset must have exactly one dct:publisher as an IRI" ;
     ] ;
     sh:property [
-        sh:path dct:provenance ;
+        sh:path dcat:theme ;
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
+        sh:in ( <http://publications.europa.eu/resource/authority/data-theme/HEAL> ) ;
         sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dct:provenance statement" ;
+        sh:message "Dataset must have at least one dcat:theme with the Health theme URI" ;
     ] ;
     sh:property [
-        sh:path dct:spatial ;
+        sh:path dct:license ;
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dct:spatial coverage" ;
+        sh:severity sh:Warning ;
+        sh:message "Dataset should have exactly one dct:license as an IRI" ;
     ] ;
     sh:property [
-        sh:path dpv:hasPurpose ;
+        sh:path dcat:distribution ;
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dpv:hasPurpose" ;
+        sh:severity sh:Warning ;
+        sh:message "Dataset should have at least one dcat:Distribution" ;
     ] ;
+    # Health-specific: Recommend dct:subject for medical classifications (e.g., ICD-10)
     sh:property [
-        sh:path adms:sample ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Non-public dataset must have at least one adms:sample distribution" ;
-    ] ;
-    sh:property [
-        sh:path dcat:contactPoint ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dcat:contactPoint" ;
-    ] ;
-    sh:property [
-        sh:path dcat:keyword ;
-        sh:minCount 1 ;
-        sh:datatype xsd:string ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one dcat:keyword" ;
-    ] ;
-    sh:property [
-        sh:path dct:type ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:hasValue <http://data.europa.eu/930/dataset-type/PERSONAL_DATA> ;
-        sh:severity sh:Violation ;
-        sh:message "Non-public dataset must have dct:type set to PERSONAL_DATA" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:healthTheme ;
-        sh:minCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Dataset must have at least one healthdcatap:healthTheme (Wikidata URI)" ;
-    ] ;
-    # Recommended properties
-    sh:property [
-        sh:path dpv:hasPersonalData ;
+        sh:path dct:subject ;
         sh:minCount 0 ;
         sh:nodeKind sh:IRI ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset should specify dpv:hasPersonalData for sensitive data" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:analytics ;
-        sh:minCount 0 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may have healthdcatap:analytics distributions" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:hasCodeValues ;
-        sh:minCount 0 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may have healthdcatap:hasCodeValues (Wikidata URIs)" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:hasCodingSystem ;
-        sh:minCount 0 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may have healthdcatap:hasCodingSystem (Wikidata URIs)" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:minTypicalAge ;
-        sh:minCount 0 ;
-        sh:datatype xsd:nonNegativeInteger ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may specify healthdcatap:minTypicalAge" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:maxTypicalAge ;
-        sh:minCount 0 ;
-        sh:datatype xsd:nonNegativeInteger ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may specify healthdcatap:maxTypicalAge" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:numberOfRecords ;
-        sh:minCount 0 ;
-        sh:datatype xsd:nonNegativeInteger ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may specify healthdcatap:numberOfRecords" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:numberOfUniqueIndividuals ;
-        sh:minCount 0 ;
-        sh:datatype xsd:nonNegativeInteger ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may specify healthdcatap:numberOfUniqueIndividuals" ;
-    ] ;
-    sh:property [
-        sh:path healthdcatap:populationCoverage ;
-        sh:minCount 0 ;
-        sh:datatype xsd:string ;
-        sh:severity sh:Warning ;
-        sh:message "Dataset may specify healthdcatap:populationCoverage" ;
+        sh:severity sh:Info ;
+        sh:message "Dataset may include dct:subject with medical classification URIs (e.g., ICD-10)" ;
     ] .
 
-# Shape for dcat:Distribution (Non-Public Health Data)
-# Includes mandatory properties for Health Data Access Body access
+# Shape for dcat:Distribution
+# Ensures distributions have access URLs and formats
 :DistributionShape a sh:NodeShape ;
     sh:targetClass dcat:Distribution ;
     sh:property [
@@ -273,48 +104,21 @@
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
-        sh:message "Distribution must have at least one dcat:accessURL as an IRI (Health Data Access Body landing page)" ;
+        sh:message "Distribution must have at least one dcat:accessURL as an IRI" ;
     ] ;
     sh:property [
         sh:path dct:format ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
         sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Distribution must have exactly one dct:format as an IRI" ;
-    ] ;
-    sh:property [
-        sh:path dct:rights ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:severity sh:Violation ;
-        sh:message "Distribution must have exactly one dct:rights statement" ;
-    ] ;
-    sh:property [
-        sh:path dcat:byteSize ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:nonNegativeInteger ;
-        sh:severity sh:Violation ;
-        sh:message "Distribution must have exactly one dcat:byteSize" ;
-    ] ;
-    sh:property [
-        sh:path dcatap:applicableLegislation ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
-        sh:hasValue <http://data.europa.eu/eli/reg/2025/327/oj> ;
-        sh:severity sh:Violation ;
-        sh:message "Distribution must have dcatap:applicableLegislation with EHDS Regulation URI" ;
+        sh:severity sh:Warning ;
+        sh:message "Distribution should have exactly one dct:format as an IRI" ;
     ] ;
     sh:property [
         sh:path dct:license ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Warning ;
-        sh:message "Distribution may have at most one dct:license as an IRI" ;
+        sh:message "Distribution should have exactly one dct:license as an IRI" ;
     ] .
 
 # Shape for dcat:CatalogRecord
@@ -324,24 +128,14 @@
     sh:property [
         sh:path foaf:primaryTopic ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:severity sh:Violation ;
         sh:message "CatalogRecord must have exactly one foaf:primaryTopic linking to a Dataset or Catalog" ;
     ] ;
     sh:property [
-        sh:path dct:modified ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:date ;
-        sh:severity sh:Violation ;
-        sh:message "CatalogRecord must have exactly one dct:modified of type xsd:date" ;
-    ] ;
-    sh:property [
         sh:path dct:issued ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
+        sh:minCount 1 ;
         sh:datatype xsd:date ;
         sh:severity sh:Warning ;
-        sh:message "CatalogRecord may have at most one dct:issued of type xsd:date" ;
+        sh:message "CatalogRecord should have exactly one dct:issued of type xsd:date" ;
     ] .

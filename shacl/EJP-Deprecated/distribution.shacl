@@ -7,45 +7,34 @@
 
 :DistributionShape a sh:NodeShape ;
   sh:targetClass dcat:Distribution ;
-  sh:property [
-    sh:path dct:issued ;
-    sh:datatype xsd:dateTime ;
-    sh:maxCount 1 ;
-    dash:editor dash:DatePickerEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dct:modified ;
-    sh:datatype xsd:dateTime ;
-    sh:maxCount 1 ;
-    dash:editor dash:DatePickerEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dcat:accessURL ;
-    sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-  ], [
-    sh:path dcat:downloadURL ;
-    sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-  ], [
-    sh:path dcat:mediaType ;
-    sh:nodeKind sh:Literal ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    dash:editor dash:TextFieldEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dcat:format ;
-    sh:nodeKind sh:Literal ;
-    sh:maxCount 1 ;
-    dash:editor dash:TextFieldEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ], [
-    sh:path dcat:byteSize ;
-    sh:nodeKind sh:Literal ;
-    sh:maxCount 1 ;
-    dash:editor dash:TextFieldEditor ;
-    dash:viewer dash:LiteralViewer ;
-  ] .
+    sh:property [
+        sh:path dcat:accessURL ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        sh:message "Distribution must have at least one dcat:accessURL as an IRI (Health Data Access Body landing page)" ;
+    ] ,
+    sh:property [
+        sh:path dct:format ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        sh:message "Distribution must have exactly one dct:format as an IRI" ;
+    ] ,
+    sh:property [
+        sh:path dct:rights ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        sh:message "Distribution must have exactly one dct:rights statement" ;
+    ] ,
+    sh:property [
+        sh:path dcat:byteSize ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:nonNegativeInteger ;
+        sh:severity sh:Violation ;
+        sh:message "Distribution must have exactly one dcat:byteSize" ;
+    ]  .
