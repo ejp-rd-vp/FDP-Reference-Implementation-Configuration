@@ -2,24 +2,25 @@
 @prefix dash:     <http://datashapes.org/dash#> .
 @prefix dcat:     <http://www.w3.org/ns/dcat#> .
 @prefix dct:      <http://purl.org/dc/terms/> .
-@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix sh:       <http://www.w3.org/ns/shacl#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
-:CatalogShape a sh:NodeShape ;
-  sh:targetClass dcat:Catalog ;
+:DatasetShape a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
   sh:property [
     sh:path dct:issued ;
     sh:datatype xsd:dateTime ;
     sh:maxCount 1 ;
+    dash:editor dash:DatePickerEditor ;
     dash:viewer dash:LiteralViewer ;
   ], [
     sh:path dct:modified ;
     sh:datatype xsd:dateTime ;
     sh:maxCount 1 ;
+    dash:editor dash:DatePickerEditor ;
     dash:viewer dash:LiteralViewer ;
   ], [
-    sh:path foaf:homePage ;
+    sh:path dcat:landingPage ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;

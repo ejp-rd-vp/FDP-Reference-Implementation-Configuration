@@ -24,4 +24,8 @@
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
+  ], [
+    sh:path dcat:themeTaxonomy ;
+    sh:nodeKind sh:IRI ;
+    dash:viewer dash:LabelViewer ;
   ] .
