@@ -1,0 +1,9 @@
+{
+  "name": "Guideline",
+  "description": "test gjuide",
+  "abstractSchema": true,
+  "definition": "@prefix : <http://fairdatapoint.org/> .\n@prefix dash: <http://datashapes.org/dash#> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n@prefix ejp: <https://w3id.org/ejp-rd/vocabulary#> .\n\n:GuidelineShape a sh:NodeShape ;\n  sh:targetClass ejp:Guideline .",
+  "extendsSchemaUuids": [""],
+  "suggestedResourceName": "guide",
+  "suggestedUrlPrefix": "guide"
+}

@@ -27,7 +27,7 @@
     dash:editor dash:URIEditor ;
     dash:viewer dash:LiteralViewer ;
   ] , [
-    sh:name "Endpoint Description (the address of your OpenAPI/Swagger YAML or JSON - NOT YOUR SWAGGER PAGE!!!!!)" ;
+    sh:name "Endpoint Description (the address of your OpenAPI/Swagger YAML or JSON - Not your SWAGGER Web page!)" ;
     sh:path dcat:endpointDescription ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
