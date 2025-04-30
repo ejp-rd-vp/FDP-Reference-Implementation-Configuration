@@ -9,4 +9,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :BiobankShape a sh:NodeShape ;
-  sh:targetClass ejp:Biobank . 
+  sh:targetClass ejp:Biobank ; 
+  sh:property [
+    sh:path ejp:populationCoverage ;
+    sh:node :AnnotationShape ;
+    dash:editor dash:BlankNodeEditor ;
+  ] .  
+  
+:AnnotationShape a sh:NodeShape ;
+  sh:targetClass sio:SIO_001166;
+  sh:property [
+    sh:path rdfs:label;
+    sh:in ("National" "International" "Regional" "European");
+    sh:nodeKind sh:Literal ;
+    dash:editor dash:EnumSelectEditor;
+    dash:viewer dash:LabelViewer
+  ] . 

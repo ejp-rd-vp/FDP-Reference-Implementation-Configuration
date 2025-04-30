@@ -35,6 +35,35 @@
     sh:maxCount 1 ;
     sh:minCount 1 ;   # updated to mandatory
     dash:editor dash:TextAreaEditor ;
+  ], 
+  [ # new section
+    sh:path dcat:landingPage ;
+    sh:name "About Page (Landing Page/Homepage)" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
+  ], 
+  [
+    sh:targetClass ejp:VPConnection ;
+    sh:name "Indexed by EJP VP? (indexd by default, so only set this if you want to hide this data)" ;
+    sh:path ejp:vpConnection ;
+    sh:nodeKind sh:IRI ;
+    sh:in (<https://w3id.org/ejp-rd/vocabulary#VPInvisible>) ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:order 0 ;
+#    dash:editor dash:URIEditor ;
+    dash:editor dash:EnumSelectEditor ;
+    # dash:viewer dash:LabelViewer ;
+  ] ,  
+  [
+    sh:path foaf:logo ;
+    sh:name "Resource Logo (may be distinct from the Organization that published it)" ;
+    sh:nodeKind sh:IRI ;
+    sh:maxCount 1 ;
+    dash:editor dash:URIEditor ;
+    dash:viewer dash:LabelViewer ;
   ],
   [
     sh:path dcat:version ;
@@ -43,7 +72,8 @@
     sh:maxCount 1 ;
     dash:editor dash:TextFieldEditor ;
     dash:viewer dash:LiteralViewer ;
-  ],   [  # new section
+  ],   
+  [  # new section
     sh:path dct:identifier ;
     sh:name "Identifier" ;
     sh:nodeKind sh:Literal ;
@@ -53,7 +83,7 @@
   ],  
   [  # new section
     sh:path dcat:theme ;
-    sh:name "Ontological Description" ;
+    sh:name "Ontological Description (enter several relevant ontology terms, for example, ORDO IRI)" ;
     sh:nodeKind sh:IRI ;
     sh:minCount 1 ;
     dash:editor dash:URIEditor ;
@@ -61,7 +91,7 @@
   ],  
   [
     sh:path dcat:keyword ;
-    sh:name "Keywords" ;
+    sh:name "Keywords (these will typically mirror the ontological description above)" ;
     sh:nodeKind sh:Literal ;
     sh:minCount 1 ;
     dash:editor dash:TextFieldEditor ;
@@ -69,7 +99,7 @@
   ], 
   [
     sh:path dct:language ;
-    sh:name "Language" ;
+    sh:name "Language (e.g. http://id.loc.gov/vocabulary/iso639-1/en for English)" ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     sh:minCount 1 ;  # updated
@@ -78,7 +108,7 @@
   ], 
   [
     sh:path dct:license ;
-    sh:name "License" ;
+    sh:name "License (https://w3id.org/ejp-rd/resources/licenses/v1.0/)" ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     sh:minCount 1 ;  # updated
@@ -87,7 +117,7 @@
   ], 
   [ # new section
     sh:path dct:accessRights ;
-    sh:name "Access Rights Document" ;
+    sh:name "Access Rights Document (could use license: https://w3id.org/ejp-rd/resources/licenses/v1.0/)" ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
@@ -96,22 +126,15 @@
   [
     sh:path dcatap:applicableLegislation ;
     sh:name "Applicable Legislation" ;
-    sh:minCount 1 ;
+#    sh:minCount 1 ; # required in EHDS
+    sh:maxCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:severity sh:Violation ;
-    sh:message "Catalog must have at least one dcatap:applicableLegislation as an IRI" ;
+    sh:message "EHDS resources must have at least one dcatap:applicableLegislation as an IRI" ;
   ] , 
   [
     sh:path odrl:hasPolicy ;
     sh:name "ODRL Policy" ;
-    sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-    dash:viewer dash:LabelViewer ;
-  ], 
-  [ # new section
-    sh:path dcat:landingPage ;
-    sh:name "About Page (Landing Page)" ;
     sh:nodeKind sh:IRI ;
     sh:maxCount 1 ;
     dash:editor dash:URIEditor ;
@@ -127,7 +150,7 @@
   ], 
   [
     sh:path dct:publisher ;
-    sh:name "Publisher" ;
+    sh:name "Publisher (Organization)" ;
     sh:node :OrgShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -135,25 +158,12 @@
   ] , 
   [  # this is a new section, and mandatory
     sh:path dcat:contactPoint ;
-    sh:name "Contact Information" ;
+    sh:name "Contact Information (should have a contact email)" ;
     sh:node :AgentShape ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     dash:editor dash:BlankNodeEditor ;
   ] , 
-  [
-    sh:targetClass ejp:VPConnection ;
-    sh:name "Indexed by EJP VP? (visible by default, so only set this if you want to hide this data!)" ;
-    sh:path ejp:vpConnection ;
-    sh:nodeKind sh:IRI ;
-    sh:in (<https://w3id.org/ejp-rd/vocabulary#VPInvisible>) ;
-    sh:minCount 0 ;
-    sh:maxCount 1 ;
-    sh:order 0 ;
-#    dash:editor dash:URIEditor ;
-    dash:editor dash:EnumSelectEditor ;
-    # dash:viewer dash:LabelViewer ;
-  ] ,  
   [
     sh:path dct:issued ;
     sh:name "Record Issued" ;
@@ -169,14 +179,6 @@
     sh:maxCount 1 ;
     dash:editor dash:DatePickerEditor ;
     dash:viewer dash:LiteralViewer ;
-  ], 
-  [
-    sh:path foaf:logo ;
-    sh:name "Resource Logo (may be distinct from the Organization that published it)" ;
-    sh:nodeKind sh:IRI ;
-    sh:maxCount 1 ;
-    dash:editor dash:URIEditor ;
-    dash:viewer dash:LabelViewer ;
   ] .
 
 :OrgShape a sh:NodeShape ;
