@@ -1,0 +1,252 @@
+[
+  {
+    "uuid": "6a668323-3936-4b53-8380-a4fd2ed082ee",
+    "name": "Resource",
+    "latest": {
+      "uuid": "6a668323-3936-4b53-8380-a4fd2ed082ee",
+      "version": "1.0.0",
+      "versionUuid": "71d77460-f919-4f72-b265-ed26567fe361",
+      "previousVersionUuid": null,
+      "name": "Resource",
+      "published": false,
+      "abstractSchema": true,
+      "latest": true,
+      "type": "INTERNAL",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix foaf:     <http://xmlns.com/foaf/0.1/>.\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:ResourceShape a sh:NodeShape ;\n  sh:targetClass dcat:Resource ;\n  sh:property [\n    sh:path dct:title ;\n    sh:nodeKind sh:Literal ;\n    sh:minCount 1 ;\n    sh:maxCount  1 ;\n    dash:editor dash:TextFieldEditor ;\n  ], [\n    sh:path dct:description ;\n    sh:nodeKind sh:Literal ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextAreaEditor ;\n  ], [\n    sh:path dct:publisher ;\n    sh:node :AgentShape ;\n    sh:minCount 1 ;\n    sh:maxCount 1 ;\n    dash:editor dash:BlankNodeEditor ;\n  ], [\n    sh:path dct:hasVersion ;\n    sh:name \"version\" ;\n    sh:nodeKind sh:Literal ;\n    sh:minCount 1 ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextFieldEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dct:language ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dct:license ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dct:rights ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ] .\n\n:AgentShape a sh:NodeShape ;\n  sh:targetClass foaf:Agent ;\n  sh:property [\n    sh:path foaf:name;\n    sh:nodeKind sh:Literal ;\n    sh:minCount 1 ;\n    sh:maxCount  1 ;\n    dash:editor dash:TextFieldEditor ;\n  ] .\n",
+      "description": "",
+      "targetClasses": [
+        "http://www.w3.org/ns/dcat#Resource"
+      ],
+      "extendsSchemaUuids": [],
+      "suggestedResourceName": null,
+      "suggestedUrlPrefix": null
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [],
+    "childSchemaUuids": [
+      "2aa7ba63-d27a-4c0e-bfa6-3a4e250f4660",
+      "866d7fb8-5982-4215-9c7c-18d0ed1bd5f3",
+      "ebacbf83-cd4f-4113-8738-d73c0735b0ab",
+      "89d94c1b-f6ff-4545-ba9b-120b2d1921d0"
+    ]
+  },
+  {
+    "uuid": "2aa7ba63-d27a-4c0e-bfa6-3a4e250f4660",
+    "name": "Catalog",
+    "latest": {
+      "uuid": "2aa7ba63-d27a-4c0e-bfa6-3a4e250f4660",
+      "version": "1.0.0",
+      "versionUuid": "c9640671-945d-4114-88fb-e81314cb7ab2",
+      "previousVersionUuid": null,
+      "name": "Catalog",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "INTERNAL",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix foaf:     <http://xmlns.com/foaf/0.1/> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:CatalogShape a sh:NodeShape ;\n  sh:targetClass dcat:Catalog ;\n  sh:property [\n    sh:path dct:issued ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dct:modified ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path foaf:homePage ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dcat:themeTaxonomy ;\n    sh:nodeKind sh:IRI ;\n    dash:viewer dash:LabelViewer ;\n  ] .",
+      "description": "",
+      "targetClasses": [
+        "http://www.w3.org/ns/dcat#Catalog"
+      ],
+      "extendsSchemaUuids": [
+        "6a668323-3936-4b53-8380-a4fd2ed082ee"
+      ],
+      "suggestedResourceName": "Catalog",
+      "suggestedUrlPrefix": "catalog"
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "6a668323-3936-4b53-8380-a4fd2ed082ee"
+    ],
+    "childSchemaUuids": []
+  },
+  {
+    "uuid": "866d7fb8-5982-4215-9c7c-18d0ed1bd5f3",
+    "name": "Dataset",
+    "latest": {
+      "uuid": "866d7fb8-5982-4215-9c7c-18d0ed1bd5f3",
+      "version": "1.0.0",
+      "versionUuid": "9cc3c89a-76cf-4639-a71f-652627af51db",
+      "previousVersionUuid": null,
+      "name": "Dataset",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "CUSTOM",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:DatasetShape a sh:NodeShape ;\n  sh:targetClass dcat:Dataset ;\n  sh:property [\n    sh:path dct:issued ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dct:modified ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ],  [\n    sh:path dcat:theme ;\n    sh:nodeKind sh:IRI ;\n    sh:minCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dcat:contactPoint ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dcat:keyword ;\n    sh:nodeKind sh:Literal ;\n    dash:editor dash:TextFieldEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dcat:landingPage ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ] .",
+      "description": "",
+      "targetClasses": [
+        "http://www.w3.org/ns/dcat#Dataset"
+      ],
+      "extendsSchemaUuids": [
+        "6a668323-3936-4b53-8380-a4fd2ed082ee"
+      ],
+      "suggestedResourceName": "Dataset",
+      "suggestedUrlPrefix": "dataset"
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "6a668323-3936-4b53-8380-a4fd2ed082ee"
+    ],
+    "childSchemaUuids": []
+  },
+  {
+    "uuid": "ebacbf83-cd4f-4113-8738-d73c0735b0ab",
+    "name": "Distribution",
+    "latest": {
+      "uuid": "ebacbf83-cd4f-4113-8738-d73c0735b0ab",
+      "version": "1.0.0",
+      "versionUuid": "3cda8cd3-b08b-4797-822d-d3f3e83c466a",
+      "previousVersionUuid": null,
+      "name": "Distribution",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "CUSTOM",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:DistributionShape a sh:NodeShape ;\n  sh:targetClass dcat:Distribution ;\n  sh:property [\n    sh:path dct:issued ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dct:modified ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dcat:accessURL ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n  ], [\n    sh:path dcat:downloadURL ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n  ], [\n    sh:path dcat:mediaType ;\n    sh:nodeKind sh:Literal ;\n    sh:minCount 1 ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextFieldEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dcat:format ;\n    sh:nodeKind sh:Literal ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextFieldEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dcat:byteSize ;\n    sh:nodeKind sh:Literal ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextFieldEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ] .",
+      "description": "",
+      "targetClasses": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "extendsSchemaUuids": [
+        "6a668323-3936-4b53-8380-a4fd2ed082ee"
+      ],
+      "suggestedResourceName": "Distribution",
+      "suggestedUrlPrefix": "distribution"
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "6a668323-3936-4b53-8380-a4fd2ed082ee"
+    ],
+    "childSchemaUuids": []
+  },
+  {
+    "uuid": "89d94c1b-f6ff-4545-ba9b-120b2d1921d0",
+    "name": "Data Service",
+    "latest": {
+      "uuid": "89d94c1b-f6ff-4545-ba9b-120b2d1921d0",
+      "version": "1.0.0",
+      "versionUuid": "9111d436-fe58-4bd5-97ae-e6f86bc2997a",
+      "previousVersionUuid": null,
+      "name": "Data Service",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "INTERNAL",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:DataServiceShape a sh:NodeShape ;\n  sh:targetClass dcat:DataService ;\n  sh:property [\n    sh:path dcat:endpointURL ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n  ] , [\n    sh:path dcat:endpointDescription ;\n    sh:nodeKind sh:Literal ;\n    sh:maxCount 1 ;\n    dash:editor dash:TextAreaEditor ;\n    dash:viewer dash:LiteralViewer ;\n] .\n",
+      "description": "",
+      "targetClasses": [
+        "http://www.w3.org/ns/dcat#DataService"
+      ],
+      "extendsSchemaUuids": [
+        "6a668323-3936-4b53-8380-a4fd2ed082ee"
+      ],
+      "suggestedResourceName": "Data Service",
+      "suggestedUrlPrefix": "data-service"
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "6a668323-3936-4b53-8380-a4fd2ed082ee"
+    ],
+    "childSchemaUuids": [
+      "6f7a5a76-6185-4bd0-9fe9-62ecc90c9bad"
+    ]
+  },
+  {
+    "uuid": "6f7a5a76-6185-4bd0-9fe9-62ecc90c9bad",
+    "name": "Metadata Service",
+    "latest": {
+      "uuid": "6f7a5a76-6185-4bd0-9fe9-62ecc90c9bad",
+      "version": "1.0.0",
+      "versionUuid": "36b22b70-6203-4dd2-9fb6-b39a776bf467",
+      "previousVersionUuid": null,
+      "name": "Metadata Service",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "INTERNAL",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix fdp:      <https://w3id.org/fdp/fdp-o#> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n\n:MetadataServiceShape a sh:NodeShape ;\n  sh:targetClass fdp:MetadataService .\n",
+      "description": "",
+      "targetClasses": [
+        "https://w3id.org/fdp/fdp-o#MetadataService"
+      ],
+      "extendsSchemaUuids": [
+        "89d94c1b-f6ff-4545-ba9b-120b2d1921d0"
+      ],
+      "suggestedResourceName": "Metadata Service",
+      "suggestedUrlPrefix": "metadata-service"
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "89d94c1b-f6ff-4545-ba9b-120b2d1921d0"
+    ],
+    "childSchemaUuids": [
+      "a92958ab-a414-47e6-8e17-68ba96ba3a2b"
+    ]
+  },
+  {
+    "uuid": "a92958ab-a414-47e6-8e17-68ba96ba3a2b",
+    "name": "FAIR Data Point",
+    "latest": {
+      "uuid": "a92958ab-a414-47e6-8e17-68ba96ba3a2b",
+      "version": "1.0.0",
+      "versionUuid": "4e64208d-f102-45a0-96e3-17b002e6213e",
+      "previousVersionUuid": null,
+      "name": "FAIR Data Point",
+      "published": false,
+      "abstractSchema": false,
+      "latest": true,
+      "type": "INTERNAL",
+      "origin": "https://purl.org/fairdatapoint/app",
+      "importedFrom": "https://purl.org/fairdatapoint/app",
+      "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix fdp:      <https://w3id.org/fdp/fdp-o#> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:FDPShape a sh:NodeShape ;\n  sh:targetClass fdp:FAIRDataPoint ;\n  sh:property [\n    sh:path fdp:startDate ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ] , [\n    sh:path fdp:endDate ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ] , [\n    sh:path fdp:uiLanguage ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    sh:defaultValue <http://id.loc.gov/vocabulary/iso639-1/en>;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ] , [\n    sh:path fdp:metadataIdentifier ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ] , [\n    sh:path fdp:metadataIssued ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ] , [\n    sh:path fdp:metadataModified ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:editor dash:DatePickerEditor ;\n    dash:viewer dash:LiteralViewer ;\n  ] .\n",
+      "description": "",
+      "targetClasses": [
+        "https://w3id.org/fdp/fdp-o#FAIRDataPoint"
+      ],
+      "extendsSchemaUuids": [
+        "6f7a5a76-6185-4bd0-9fe9-62ecc90c9bad"
+      ],
+      "suggestedResourceName": "FAIR Data Point",
+      "suggestedUrlPrefix": ""
+    },
+    "draft": null,
+    "versions": [
+      "1.0.0"
+    ],
+    "extendSchemaUuids": [
+      "6f7a5a76-6185-4bd0-9fe9-62ecc90c9bad"
+    ],
+    "childSchemaUuids": []
+  }
+]

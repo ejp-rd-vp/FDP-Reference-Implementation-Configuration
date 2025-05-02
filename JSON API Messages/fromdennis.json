@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "description": "",
+  "abstractSchema": false,
+  "definition": "@prefix :         <http://fairdatapoint.org/> .\n@prefix dash:     <http://datashapes.org/dash#> .\n@prefix dcat:     <http://www.w3.org/ns/dcat#> .\n@prefix dct:      <http://purl.org/dc/terms/> .\n@prefix foaf:     <http://xmlns.com/foaf/0.1/> .\n@prefix sh:       <http://www.w3.org/ns/shacl#> .\n@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .\n\n:CatalogShape a sh:NodeShape ;\n  sh:targetClass dcat:Catalog ;\n  sh:property [\n    sh:path dct:issued ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path dct:modified ;\n    sh:datatype xsd:dateTime ;\n    sh:maxCount 1 ;\n    dash:viewer dash:LiteralViewer ;\n  ], [\n    sh:path foaf:homePage ;\n    sh:nodeKind sh:IRI ;\n    sh:maxCount 1 ;\n    dash:editor dash:URIEditor ;\n    dash:viewer dash:LabelViewer ;\n  ], [\n    sh:path dcat:themeTaxonomy ;\n    sh:nodeKind sh:IRI ;\n    dash:viewer dash:LabelViewer ;\n  ] .",
+  "extendsSchemaUuids": ["6a668323-3936-4b53-8380-a4fd2ed082ee"],
+  "suggestedResourceName": null,
+  "suggestedUrlPrefix": null
+}
