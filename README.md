@@ -1,3 +1,6 @@
+# DEPRECATED DEPRECATED DEPRECATED DEPERCATED
+
+
 # FDP Reference Implementation Configuration
 
 ## NOTA BENE!  THIS IS ONLY FOR FAIR-in-a-Box and/or the FAIR Data Point reference implementation
