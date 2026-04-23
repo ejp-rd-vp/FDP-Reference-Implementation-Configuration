@@ -30,7 +30,7 @@
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
       sh:message "Dataset must have exactly one healthdcatap:hdab as an IRI" ;
-  ] ,
+  ] ;
   sh:property [
       sh:path healthdcatap:healthCategory ;
         sh:name "Health Category" ;
@@ -42,7 +42,7 @@
           dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
 
-  ] ,
+  ] ;
       sh:property [
         sh:name "Provenance (URL to description of the data's origin)" ;
         sh:hasValue <http://example.org/provenance/rare-disease-registry-how-we-collect> ;
@@ -54,7 +54,7 @@
             dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
 
-    ] ,
+    ] ;
 sh:property [
     sh:name "Spatial coverage (e.g. Europe: http://data.europa.eu/nuts/code/EU or Germany: http://data.europa.eu/nuts/code/DE)" ;
     sh:hasValue <http://data.europa.eu/nuts/code/EU> ;
@@ -65,7 +65,7 @@ sh:property [
     sh:message "Dataset must have at least one dct:spatial coverage" ;
     dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
-] ,
+] ;
    sh:property [
         sh:name "The purpose of the dataset (from the dpv vocabulary; default is research and development)" ;
         sh:hasValue <https://w3id.org/dpv#ResearchAndDevelopment> ;
@@ -77,7 +77,7 @@ sh:property [
             dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
 
-    ] ,
+    ] ;
     sh:property [
         sh:name "Link to some sample data (required, but you can use the link to your Distribution if you don't have a smaller example)" ;
         sh:path adms:sample ;
@@ -88,7 +88,7 @@ sh:property [
             dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
 
-    ] ,
+    ] ;
         sh:property [
         sh:name "This will always be 'PERSONAL DATA' in EJP, so leave the default unless you know what you're doing" ;
         sh:path dct:type ;
@@ -101,9 +101,9 @@ sh:property [
             dash:editor dash:URIEditor ;
     dash:viewer dash:LabelViewer ;
 
-    ] ,
+    ] ;
         sh:property [
-        sh:name "Personal Data? (leave this as the default if you don't know otherwise)"
+        sh:name "Personal Data? (leave this as the default if you don't know otherwise)";
         sh:path dpv:hasPersonalData ;
         sh:hasValue dpv:HealthData;
         sh:minCount 1 ;
@@ -112,7 +112,7 @@ sh:property [
         sh:message "Dataset should specify dpv:hasPersonalData for sensitive data" ;
         dash:editor dash:URIEditor ;
         dash:viewer dash:LabelViewer ;
-    ] ,
+    ] ;
     sh:property [
         sh:name "Health Theme (default is 'rare disease', but you can look-up more specific themes)" ;
         sh:hasValue <http://www.wikidata.org/entity/Q55789681> ;
